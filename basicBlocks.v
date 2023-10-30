@@ -93,7 +93,7 @@ module shifter #(
     parameter width = 32,
     parameter shiftAmt = 2
 ) (
-    input [width/2 - 1:0] shiftIn,
+    input [width-1:0] shiftIn,
     output [width-1:0] shiftOut
 );
 
