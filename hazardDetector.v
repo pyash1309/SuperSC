@@ -20,7 +20,7 @@ module hazardDetector (
     output flush_D2, flush_E2, flush_M2, flush_W2
 
 );
-  //lw stall
+  // Load Stalls
   wire lwStall_1; 
   assign lwStall_1 = ( (((rs_D1 == writeReg_E1) | (rt_D1 == writeReg_E1)) & memToReg_E1) |
                        (((rs_D1 == writeReg_E2) | (rt_D1 == writeReg_E2)) & memToReg_E2) );
@@ -30,7 +30,7 @@ module hazardDetector (
                        (((rs_D2 == writeReg_E1) | (rt_D2 == writeReg_E1)) & memToReg_E1) |
                        (((rs_D2 == writeReg_E2) | (rt_D2 == writeReg_E2)) & memToReg_E2) );
 
-  //branch stall
+  // Branch Stalls
   wire bsc_E1; 
   assign bsc_E1 = ( (((rs_D1 == writeReg_E1) | (rt_D1 == writeReg_E1)) & regWrite_E1) |
                     (((rs_D1 == writeReg_E2) | (rt_D1 == writeReg_E2)) & regWrite_E2) );
@@ -56,11 +56,11 @@ module hazardDetector (
   wire branchStall_2; 
   assign branchStall_2 = branch_D2 & (bsc_D2 | bsc_E2 | bsc_M2);
 
-  //execution stall
+  // Execution Stalls
   wire exeStall_2; 
   assign exeStall_2 = ((rs_E2 == writeReg_E1) | (rt_E2 == writeReg_E1)) & regWrite_E1; 
 
-  //stalls
+  // Stalls
   assign stall_W1 = 0;
   assign stall_W2 = 0;
   assign stall_M1 = 0;
@@ -74,7 +74,7 @@ module hazardDetector (
   
   assign stall_F = stall_D2;
   
-  //flushes  
+  // Flushes 
   assign flush_W1 = 0;
   assign flush_W2 = 0;
   assign flush_M1 = stall_E1;

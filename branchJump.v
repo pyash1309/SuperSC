@@ -16,8 +16,8 @@ wire equal, branchCond;
 wire [width-1:0] muxAOut, muxBOut;
 wire [width-1:0] pcPlus_4D; assign pcPlus_4D = pc_D + 4;
   
-mux4#(32) forwardMux_AD(.I0(rfOut_1D), .I1(out_M1), .I2(out_M2), .I3(1'b0), .S(for_A_D), .muxOut(muxAOut));
-mux4#(32) forwardMux_BD(.I0(rfOut_2D), .I1(out_M1), .I2(out_M2), .I3(1'b0), .S(for_B_D), .muxOut(muxBOut));
+mux4#(32) forwardMux_AD(.I0(rfOut_1D), .I1(out_M1), .I2(out_M2), .I3(32'b0), .S(for_A_D), .muxOut(muxAOut));
+mux4#(32) forwardMux_BD(.I0(rfOut_2D), .I1(out_M1), .I2(out_M2), .I3(32'b0), .S(for_B_D), .muxOut(muxBOut));
   
 assign equal = (muxAOut == muxBOut);
 assign branchCond = (eqNE_D) ? equal : ~equal; // branch condition determined by beq or bne

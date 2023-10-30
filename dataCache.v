@@ -37,24 +37,3 @@ assign readData1 = {cacheData[addr1+3], cacheData[addr1+2], cacheData[addr1+1], 
 assign readData2 = {cacheData[addr2+3], cacheData[addr2+2], cacheData[addr2+1], cacheData[addr2]};
 
 endmodule
-
-/*module dataCache(input clk, write1, write2,
-                   input [31:0] addr1, addr2,
-                   input [31:0] write_data1, write_data2,
-                   output [31:0] read_data1, read_data2);
-
-  reg [31:0] ram [0:63]; //64 words memory
-    
-  always @(negedge clk) begin
-    if((addr1 == addr2) & write1 & write2) ram[addr2[31:2]] <= write_data2;
-    else begin
-      if(write1) ram[addr1[31:2]] <= write_data1;
-      if(write2) ram[addr2[31:2]] <= write_data2;
-    end
-  end
-  
-  assign read_data1 = ram[addr1[31:2]];
-  assign read_data2 = ram[addr2[31:2]];
-
-endmodule
-*/

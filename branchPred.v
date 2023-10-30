@@ -142,9 +142,6 @@ assign tag_F1 = pc_F1[31:3];
 wire [2:0] index_F1;
 assign index_F1 = pc_F1[2:0];
   
-wire [31:3] tag_D1; 
-assign tag_D1 = pc_D1[31:3];
-  
 wire [2:0] index_D1; 
 assign index_D1 = pc_D1[2:0];
   
@@ -153,9 +150,6 @@ assign tag_F2 = pc_F2[31:3];
   
 wire [2:0] index_F2; 
 assign index_F2 = pc_F2[2:0];
-  
-wire [31:3] tag_D2; 
-assign tag_D2 = pc_D2[31:3];
   
 wire [2:0] index_D2; 
 assign index_D2 = pc_D2[2:0];

@@ -44,7 +44,7 @@ branchJump bJ(.eqNE_D(eqNE_D), .branch_D(branch_D), .jump_D(jump_D),
   
 wire [width-1:0] shImm_D, seImm_D, zeImm_D, extImm_D;
 
-shifter#(.width(32), .shiftAmt(16)) ls16(.shiftIn(instr_D[15:0]), .shiftOut(shImm_D));
+shifter#(.width(32), .shiftAmt(16)) ls16(.shiftIn({16'b0,instr_D[15:0]}), .shiftOut(shImm_D));
 szExt#(.width(32), .sz(0)) sE(.szIn(instr_D[15:0]), .szOut(seImm_D));
 szExt#(.width(32), .sz(1)) zE(.szIn(instr_D[15:0]), .szOut(zeImm_D));
 
